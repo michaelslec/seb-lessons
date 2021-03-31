@@ -1,4 +1,7 @@
 # Seb Tutoring Outline: 4/6/21 -> 4/27/21
+### Table of Contents
+  - [4/6 - Recursion](#recursion)
+
 ### Objectives
   - Learn how to solve problems with recursion
       - Space/time complexity with recursion
@@ -8,9 +11,6 @@
       - Spotting a DP problem
       - Setting up and solving DP problems
   -
-
-### Table of Contents
-  - [4/6 - Recursion](#recursion)
 
 ## Recursion
   - Introduction to recursion
