@@ -38,6 +38,7 @@ def sum_to_n():
     >>> sum_to_n(6)
     21
     """
+    pass
 
 
 def factorial():
@@ -56,15 +57,22 @@ def factorial():
     >>> factorial(6)
     720
     """
+    pass
 
+def ways_across_river():
+    """Returns the number of ways across a river by 1 or 2 steps.
 
-def tail_factorial():
-    """Same as factorial, but with tail recursion.
+    Problem: There is a frog that wants to cross the river. The frog may either
+    jump one OR two spots at a time. Given the length of the river, calculate
+    the number of different ways the frog could cross the river.
 
-    >>> tail_factorial(0)
+    >>> ways_across_river(0)
     1
-    >>> tail_factorial(1)
+    >>> ways_across_river(1)
     1
-    >>> tail_factorial(6)
-    720
+    >>> ways_across_river(2)
+    2
+    >>>ways_across_river(4)
+    5
     """
+    pass
