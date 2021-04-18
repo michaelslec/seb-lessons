@@ -1,6 +1,6 @@
 #!/bin/python -mpytest
 import pytest
-from solution_editor import Editor, Actions, DLList
+from editor import Editor, Actions, DLList
 
 
 def count_list(root: DLList) -> int:
@@ -149,7 +149,7 @@ class TestEditor:
         editor.act(Actions.Delete)
         editor.undo()
         editor.redo()
-        assert  editor.curr is editor.actions.tail
+        assert editor.curr is editor.actions.tail
 
     def test_editor_act_once_redo(self, editor: Editor):
         editor.redo()
