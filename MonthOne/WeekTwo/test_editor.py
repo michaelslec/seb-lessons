@@ -1,6 +1,6 @@
 #!/bin/python -mpytest
 import pytest
-from editor import Editor, Actions, DLList
+from solution_editor import Editor, Actions, DLList
 
 
 def count_list(root: DLList) -> int:
@@ -32,6 +32,13 @@ class TestDLList:
         assert empty_dllist.head.next is empty_dllist.tail
         assert empty_dllist.tail.prev is empty_dllist.head
 
+    def test_append_returns_node(self, empty_dllist: DLList):
+        return_val = empty_dllist.append(1)
+
+        assert type(return_val) != None
+        assert type(return_val) == DLList.DLNode
+        assert return_val.val == 1
+
     def test_append_once(self, empty_dllist: DLList):
         node_87 = empty_dllist.append(87)
         assert empty_dllist.head.next is node_87
@@ -58,13 +65,13 @@ class TestDLList:
         assert node_3.prev == node_2
         assert node_3.next == empty_dllist.tail
 
-    def test_insert_None_ptr(self, empty_dllist: DLList):
+    def test_replace_None_ptr(self, empty_dllist: DLList):
         assert empty_dllist.replace(1, None) == None
 
-    def test_insert_head_ptr(self, empty_dllist: DLList):
+    def test_replace_head_ptr(self, empty_dllist: DLList):
         assert empty_dllist.replace(2, empty_dllist.head) == None
 
-    def test_insert_tail_ptr(self, empty_dllist: DLList):
+    def test_replace_tail_ptr(self, empty_dllist: DLList):
         one = empty_dllist.append(1)
         ten = empty_dllist.replace(10, empty_dllist.tail)
 
@@ -74,12 +81,12 @@ class TestDLList:
         assert ten.next is empty_dllist.tail
         assert empty_dllist.tail.prev is ten
 
-    def test_insert_one_list(self, empty_dllist: DLList):
+    def test_replace_one_list(self, empty_dllist: DLList):
         one = empty_dllist.append(1)
         two = empty_dllist.replace(2, one)
         assert empty_dllist.head.next == two
 
-    def test_insert_begin_two_list(self, empty_dllist: DLList):
+    def test_replace_begin_two_list(self, empty_dllist: DLList):
         one = empty_dllist.append(1)
         empty_dllist.append(2)
 
@@ -89,7 +96,7 @@ class TestDLList:
         assert empty_dllist.head.next is three
         assert empty_dllist.head.next.val == 3
 
-    def test_insert_end_two_list(self, empty_dllist: DLList):
+    def test_replace_end_two_list(self, empty_dllist: DLList):
         one = empty_dllist.append(1)
         two = empty_dllist.append(2)
 

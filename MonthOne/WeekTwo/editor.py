@@ -39,6 +39,9 @@ class DLList():
             self.val = val
             self.next = None
             self.prev = None
+        
+        def __repr__(self):
+            return f"DLNode({self.val})"
 
     def __init__(self):
         self.head = self.DLNode(0)
