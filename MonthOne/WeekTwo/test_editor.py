@@ -1,6 +1,6 @@
 #!/bin/python -mpytest
 import pytest
-from solution_editor import Editor, Actions, DLList
+from editor import Editor, Actions, DLList
 
 
 def count_list(root: DLList) -> int:
