@@ -139,4 +139,5 @@ cython_debug/
 
 # Custom
 archive/
-solution-*
+solution_*
+.vscode/
