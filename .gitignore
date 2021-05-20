@@ -141,3 +141,4 @@ cython_debug/
 archive/
 solution_*
 .vscode/
+references/
