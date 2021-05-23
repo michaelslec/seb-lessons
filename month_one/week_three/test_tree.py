@@ -52,3 +52,17 @@ def test_insert_root_left_right_right(my_dict):
     assert my_dict.root.right.left.val == "are"
     assert my_dict.root.right.right.val == "quiet"
     assert my_dict.root.right.right.right.val == "zed"
+
+def test_insert_root_left_left_right_left(my_dict):
+    my_dict.insert("michael")
+    my_dict.insert("luck")
+    my_dict.insert("bear")
+    my_dict.insert("quiet")
+    my_dict.insert("are")
+
+    assert my_dict.root.right.val == "michael"
+    assert my_dict.root.right.left.val == "luck"
+    assert my_dict.root.right.left.left.val == "bear"
+    assert my_dict.root.right.left.left.left.val == "are"
+    assert my_dict.root.right.right.val == "quiet"
+    
