@@ -5,9 +5,14 @@ from ppbtree import *
 from month_one.week_three.solution_dictionary import *
 
 
+def display(tree: Dictionary, header="RESULT"):
+    print(f"===== {header} =====\n")
+    print_tree(tree.get_root(), 'val', 'right', 'left')
+
+
 @pytest.fixture
 def my_dict():
-    print("-------------- Empty Tree ---------------")
+    print("====== SETUP - EMPTY ======\n")
     return Dictionary()
 
 
@@ -25,7 +30,7 @@ def full_dict():
     dict.insert("right")
     dict.insert("television")
 
-    print_tree(dict.root, 'val', 'right', 'left')
+    display(dict, "SETUP - ORIGINAL")
 
     return dict
 
@@ -40,6 +45,7 @@ def test_get_root_returns_real_root(my_dict):
     assert root is None
 
     my_dict.root.right = Word("test")
+    display(my_dict)
     root = my_dict.get_root()
 
     assert root is my_dict.root.right
@@ -56,12 +62,14 @@ def test_not_empty_after_insert(my_dict):
 
 def test_insert_once(my_dict):
     my_dict.insert("test")
+    display(my_dict)
     assert isinstance(my_dict.get_root(), Word)
 
 
 def test_insert_twice_increasing_order(my_dict):
     my_dict.insert("t")
     my_dict.insert("test")
+    display(my_dict)
 
     assert my_dict.get_root().val == "t"
     assert my_dict.get_root().right.val == "test"
@@ -70,6 +78,7 @@ def test_insert_twice_increasing_order(my_dict):
 def test_insert_twice_increasing_decreasing(my_dict):
     my_dict.insert("test")
     my_dict.insert("t")
+    display(my_dict)
 
     assert my_dict.get_root().val == "test"
     assert my_dict.get_root().left.val == "t"
@@ -80,6 +89,7 @@ def test_insert_root_left_right_right(my_dict):
     my_dict.insert("are")
     my_dict.insert("quiet")
     my_dict.insert("zed")
+    display(my_dict)
 
     assert my_dict.get_root().val == "michael"
     assert my_dict.get_root().left.val == "are"
@@ -93,6 +103,7 @@ def test_insert_root_left_left_right_left(my_dict):
     my_dict.insert("bear")
     my_dict.insert("quiet")
     my_dict.insert("are")
+    display(my_dict)
 
     assert my_dict.get_root().val == "michael"
     assert my_dict.get_root().left.val == "luck"
