@@ -2,7 +2,7 @@
 import pytest
 from ppbtree import *
 
-from month_one.week_three.solution_dictionary import *
+from month_one.week_three.dictionary import *
 
 
 def display(tree: Dictionary, header="RESULT"):
