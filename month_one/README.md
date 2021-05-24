@@ -1,7 +1,8 @@
 # Seb Tutoring Outline: 4/6/21 -> 4/27/21
 ### Table of Contents
-  - [4/6 - Recursion](https://github.com/michaelslec/seb-lessons/tree/main/MonthOne/WeekOne)
-  - [4/21 - Trees](https://github.com/michaelslec/seb-lessons/tree/main/MonthOne/WeekTwo)
+  - [04/06 - Recursion](https://github.com/michaelslec/seb-lessons/tree/main/month_one/week_one)
+  - [04/21 - Linked Lists](https://github.com/michaelslec/seb-lessons/tree/main/month_one/week_two)
+  - [05/24 - Trees](https://github.com/michaelslec/seb-lessons/tree/main/month_one/week_three)
 
 ### Objectives
   - Learn how to solve problems with recursion
