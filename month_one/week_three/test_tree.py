@@ -7,7 +7,10 @@ from month_one.week_three.solution_dictionary import *
 
 def display(tree: Dictionary, header="RESULT"):
     print(f"===== {header} =====\n")
-    print_tree(tree.get_root(), 'val', 'right', 'left')
+    if tree.get_root() is None:
+        print("~EMPTY~")
+    else:
+        print_tree(tree.get_root(), 'val', 'right', 'left')
 
 
 @pytest.fixture
@@ -27,6 +30,8 @@ def full_dict():
     dict.insert("fireworks")
     dict.insert("quiet")
     dict.insert("ostrich")
+    dict.insert("oasis")
+    dict.insert("obituary")
     dict.insert("right")
     dict.insert("television")
 
@@ -141,3 +146,67 @@ def test_find_node_nested_left_and_right(full_dict):
     result = full_dict.find("fireworks")
 
     assert full_dict.get_root().left.right is result
+
+
+def test_remove_on_empty_tree_returns_false(my_dict):
+    assert my_dict.remove("test") == False
+
+
+def test_remove_non_existing_node_returns_false(full_dict: Dictionary):
+    assert full_dict.remove("asdf") == False
+
+
+def test_remove_only_node_in_tree_returns_true(my_dict: Dictionary):
+    my_dict.insert("root")
+    assert my_dict.remove("root") == True
+    display(my_dict)
+    assert my_dict.find("root") is None
+
+
+def test_remove_child_leaf_node_left_only(full_dict: Dictionary):
+    assert full_dict.remove("artist") == True
+    display(full_dict)
+    assert full_dict.find("artist") is None
+
+
+def test_remove_child_leaf_node_right_only(full_dict: Dictionary):
+    assert full_dict.remove("television") == True
+    display(full_dict)
+    assert full_dict.find("television") is None
+
+
+def test_remove_child_node_with_right_child(full_dict: Dictionary):
+    assert full_dict.remove("right") == True
+    display(full_dict)
+    assert full_dict.find("right") is None
+    assert full_dict.get_root().right.right.val == "television"
+
+
+def test_remove_child_node_with_left_child(full_dict: Dictionary):
+    assert full_dict.remove("bear") == True
+    display(full_dict)
+    assert full_dict.find("bear") is None
+    assert full_dict.get_root().left.left.val == "artist"
+
+
+def test_remove_child_with_both_children_and_right_is_single(full_dict: Dictionary):
+    assert full_dict.remove("dog") == True
+    display(full_dict)
+    assert full_dict.find("dog") is None
+    assert full_dict.get_root().left.val == "fireworks"
+
+
+def test_remove_child_with_both_children_and_right_has_right(full_dict: Dictionary):
+    assert full_dict.remove("quiet") == True
+    display(full_dict)
+    assert full_dict.find("quiet") is None
+    assert full_dict.get_root().right.val == "right"
+    assert full_dict.get_root().right.right.val == "television"
+
+
+def test_remove_child_with_both_children_and_right_has_many(full_dict: Dictionary):
+    assert full_dict.remove("magic") == True
+    display(full_dict)
+    assert full_dict.find("magic") is None
+    assert full_dict.get_root().val == "oasis"
+    assert full_dict.get_root().right.right.val == "right"
