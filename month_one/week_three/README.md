@@ -1,5 +1,6 @@
 # [Trees overview](https://youtu.be/E5Pgrm5MsHc)
 # [Dictionary Assignment](https://youtu.be/5eGX_7HdeEE)
+# [Supplementary Video](https://youtu.be/G-HaG_C9FW8)
 
 # problems:
   - [Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/)
